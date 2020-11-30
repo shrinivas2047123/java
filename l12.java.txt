@@ -1,0 +1,86 @@
+import java.util.Scanner;
+
+class votersystem { 
+  
+    public static void main(String args[]) 
+    { 
+            int  NoOfVoter ;
+            Scanner input = new Scanner(System.in);
+            System.out.println("input the number of voter");
+            NoOfVoter = input.nextInt();
+
+        // Declaring an array of voter
+
+        Voter[] arr; 
+  
+        // Allocating memory for 2 objects 
+        // of type voter
+        arr = new Voter[NoOfVoter]; 
+        for(int i =0 ;i<NoOfVoter;i++)
+        {
+            arr[i] = new Voter();
+        }
+
+        
+        for(int i =0;i<NoOfVoter;i++){
+            System.out.println("Input the "+ i + " voter details");
+            arr[i].read();
+        }
+        for(int i =0;i<NoOfVoter;i++){
+            System.out.println("The "+ i + " voter details are");
+            arr[i].display();
+        }
+    
+  
+        
+    } 
+} 
+
+
+  
+// Creating a voter class with 
+// id and name as a attributes 
+class Voter { 
+  
+    public double id; 
+    public String name; 
+    public int age;
+    public String DOB;
+
+    Scanner input = new Scanner(System.in);
+    
+    public void read(){
+
+            System.out.println("Input the  voter IDno");
+            this.id = input.nextDouble(); 
+            System.out.println("Input the voter name ");
+            this.name= input.next();
+            System.out.println("Input the  voter age");
+            this.age = input.nextInt();
+            System.out.println("Input the voter DOB");
+            this.DOB = input.next();
+
+    }
+
+    public void checkVoter()
+    {
+        if (this.age<18)
+        {
+            System.out.println("voter is under age");
+        }
+        else
+        {
+            System.out.println("Valid voter ");
+        }
+
+    }
+
+    // display() method to display 
+    // the voter data 
+    public void display() 
+    { 
+        System.out.println("Voter id is: " + id + "\n"  + "and Voter name is: " + name + " \n voter age is : " + age + " \n " + "and Voter voter DOB is: " + DOB); 
+        this.checkVoter();
+    } 
+}
+
